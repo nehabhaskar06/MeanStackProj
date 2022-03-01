@@ -1,0 +1,64 @@
+<div>
+    <h1 style="margin-left:381px">Covid Vaccine Portal</h1>
+</div>
+    <table class="table table-bordered" border="1" 
+   style=
+   "margin-top: 155px;
+    margin-left: 181px;
+    height: -11px;"
+>
+<head>
+    <title>HTML Table Background</title>
+ </head>
+    <thead style="height: 41px;">
+            <tr class="tablefont"
+                style="background: #3fc1d8; background: -moz-linear-gradient(top,  #1f7c88 0%,#2b8f8f  100%); background: -webkit-linear-gradient(top, #21a6c7 0%,#7500cf 100%); background: linear-gradient(to bottom,  #2b8f8f 0%,#2b8f8f  100%); filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a9e4f7', endColorstr='#0fb4e7',GradientType=0 ); ">
+                
+                <th>Name</th>
+                <th style="width:81px">Age</th>
+                <th style="width:81px">Gender</th>
+                <th style="width:81px">Address</th>
+                <th style="width:81px">Mobile Number</th>
+                <th style="width:81px">Email</th>
+                <th style="width:81px">Password</th>
+                <th style="width:81px">Vaccine Dose</th>
+   
+            </tr>
+        </thead>
+        <tbody>
+    
+    <tr *ngFor="let user of data">
+     
+        <td>
+           
+            {{ user.name}}
+
+        </td>
+        <td>
+            {{ user.age}}
+
+        </td>
+        <td>
+{{ user.gender}}
+
+        </td>
+        <td>
+{{ user.address}}
+   
+        </td>
+        <td>
+            {{ user.mobnumber}}
+
+        </td>
+        <td>
+{{ user.email}}
+        </td>
+<td>
+    {{user.paasword}}
+</td>
+     <td>{{user.Dose}}</td>
+    </tr>
+        
+        
+        </tbody>
+    </table>

@@ -1,0 +1,53 @@
+ 
+<!DOCTYPE html>
+<html>
+<head>
+<title>Icon inside Input Field - Demo Preview</title>
+<meta content="noindex, nofollow" name="robots">
+
+</head>
+<body>
+  <form [formGroup]="myForm"  (ngSubmit) = "onClickSubmit(myForm.value)" >
+    <div>
+  <h1>Registration Form</h1>
+</div>
+<div id="first">
+<input  placeholder="Full Name" formControlName="name" type="text" class="form-control" style=" width: 322px;
+height: 31px;">
+<br>
+<br>
+<input placeholder="Age" formControlName="age"type="email" class="form-control" style=" width: 322px;
+height: 31px;">
+<br>
+<br>
+<input placeholder="Gender" formControlName="gender" type="text" class="form-control" style=" width: 322px;
+height: 31px;" >
+<br>
+<br>
+<input  placeholder="Address" formControlName="address" type="text" style=" width: 322px;
+height: 31px;">
+  <br>
+<br>
+<input  placeholder="Mobile Number" formControlName="mobnumber"  type="text"  style=" width: 322px;
+height: 31px;">
+<br>
+<br>
+<input placeholder="Email" formControlName="email" type="text"  style=" width: 322px;
+height: 31px;">
+<br>
+<br>
+<input placeholder="Password" formControlName="paasword" type="password"  style=" width: 322px;
+height: 31px;">
+
+<br>
+<br>
+<div class="clearfix">
+<input  type="submit"  value="Submit" style="background-color: rgb(103, 114, 39);height:33px;width:82px">
+
+  <button type="submit" (click)="Cancel()" style="background-color: rgb(190, 87, 47);height:33px;width:82px">Cancel</button>
+
+</div>
+</div>
+</form>
+</body>
+</html>

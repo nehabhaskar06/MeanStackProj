@@ -1,0 +1,19 @@
+<form action="action_page.php" style="border:1px solid #ccc">
+    <div class="container">
+      <h1>Covid Vaccine Portal</h1>
+      <hr>
+  
+      <label for="email"><b>Mobile Number</b></label>
+      <input type="text" placeholder="Enter Mobile Number" [(ngModel)]="mobNumberLogin" name="email" required>
+  
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password"[(ngModel)]="paaswordLogin" name="psw" required>
+  
+           <div class="clearfix">
+        <button type="submit" (click)="Register()" class="signupbtn">Register</button>
+        <button type="submit" style="width:97px;background-color:chocolate;" (click)="SignInUser()" class="signupbtn">Login(User)</button>
+        
+        <button type="submit" style="width:107px;background-color:chocolate;"  (click)="SignInAdmin()"class="signupbtn">Login(Admin)</button>
+      </div>
+    </div>
+  </form>

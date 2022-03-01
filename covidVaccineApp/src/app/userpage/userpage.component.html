@@ -1,0 +1,186 @@
+<div>
+    <h1 style="margin-left:381px">Covid Vaccine Portal</h1>
+</div>
+<form [formGroup]="gridForm">
+ <div style=" margin-left: 57px; margin-right: 20px;margin-top: 168px;">
+<table class="table table-bordered" border="1">
+    
+<thead>
+        <tr class="tablefont"
+            style="background: #3fc1d8; background: -moz-linear-gradient(top,  #1f7c88 0%,#2b8f8f  100%); background: -webkit-linear-gradient(top, #21a6c7 0%,#7500cf 100%); background: linear-gradient(to bottom,  #2b8f8f 0%,#2b8f8f  100%); filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a9e4f7', endColorstr='#0fb4e7',GradientType=0 ); ">
+            
+            <th style="width:60px;">Name</th>
+            <th style="width:60px;">Age</th>
+            <th>Gender</th>
+            <th>Address</th>
+            <th>Mobile Number</th>
+            <th>Email</th>
+            <th style="width:76px;">Update</th>
+            <th style="width:76px;">Delete</th>
+        
+            <th>Add Dependent</th>
+            <th>BookSlot</th>
+
+        </tr>
+    </thead>
+    <tbody>
+
+<tr *ngFor="let user of data;index as i;">
+ 
+    <td>
+        
+        <span *ngIf="enableEditIndex != i">{{ user.name}}</span>
+        <span *ngIf="enableEdit && enableEditIndex == i">
+            <input type="text" class="form-control formDivTextBoxDropdownControls"
+                id="txtName" [(ngModel)]="editName" [ngModelOptions]="{standalone: true}" 
+                 required />
+        </span>
+    </td>
+    <td>
+        <span *ngIf="enableEditIndex != i">{{ user.age}}</span>
+        <span *ngIf="enableEdit && enableEditIndex == i">
+            <input type="text" class="form-control formDivTextBoxDropdownControls"
+                id="txtAge"  [(ngModel)]="editAge" [ngModelOptions]="{standalone: true}" 
+                required />
+                 
+                 </span>
+    </td>
+    <td>
+        <span *ngIf="enableEditIndex != i">{{ user.gender}}</span>
+        <span *ngIf="enableEdit && enableEditIndex == i">
+            <input type="text" class="form-control formDivTextBoxDropdownControls"
+                id="txtGender" [(ngModel)]="editGender" [ngModelOptions]="{standalone: true}" 
+                 required />
+                 </span>
+    </td>
+    <td>
+        <span *ngIf="enableEditIndex != i">{{ user.address}}</span>
+        <span *ngIf="enableEdit && enableEditIndex == i">
+            <input type="text" class="form-control formDivTextBoxDropdownControls"
+                id="txtAge" [(ngModel)]="editAddress" [ngModelOptions]="{standalone: true}" 
+                 required />
+                 </span>
+    </td>
+    <td>
+        <span *ngIf="enableEditIndex != i">{{ user.mobnumber}}</span>
+        <span *ngIf="enableEdit && enableEditIndex == i">
+            <input type="text" class="form-control formDivTextBoxDropdownControls"
+                id="txtMobNumber" [(ngModel)]="editMobNumber" [ngModelOptions]="{standalone: true}" 
+                 required />
+                 </span>
+    </td>
+    <td>
+        <span *ngIf="enableEditIndex != i">{{ user.email}}</span>
+        <span *ngIf="enableEdit && enableEditIndex == i">
+            <input type="text" class="form-control formDivTextBoxDropdownControls"
+                id="txtEmail" [(ngModel)]="editEmail" [ngModelOptions]="{standalone: true}" 
+                 required />
+                 </span>
+    </td>
+    <td>
+        
+        <img   *ngIf="enableEditIndex != i" src="assets/images/Edit-icon.png" style="width:30px;margin-left:22px"
+        title="Edit" (click)="edituser(user,i)" />
+
+    <img   *ngIf="enableEdit && enableEditIndex == i" src="assets/images/Add.png" style="width:30px;margin-left:22px"
+        title="Update" (click)="saveUser()" />
+
+    <img   *ngIf="enableEdit && enableEditIndex == i" src="assets/images/Cancel.jpg" style="width:30px;margin-left:22px"
+        title="Cancel" (click)="cancelUser()" />
+
+
+    </td>
+
+    <td>
+        <img  style="margin-left:22px" *ngIf="enableEditIndex != i" src="assets/images/Delete.png" title="Delete" style="width:30px;margin-left:22px"
+        (click)="deleteUser(user,user._id)" />
+    </td>
+
+    <td>
+        <img  src="assets/images/Add.png" style="margin-left: 37px"
+          title="AddDependent" (click)="addDependent()" />
+   
+    </td>
+
+    
+    <td>
+        <a (click)="BookSlot()">Book</a>
+    </td>
+ </tr>
+   </tbody>
+</table>
+ </div>
+</form>
+
+<br>
+<br>
+<br>
+
+
+<div *ngIf="showDependent">
+    <form [formGroup]="myForm"  (ngSubmit) = "onClickSubmit(myForm.value)" >
+    <div id="first" style="margin-left:200px">
+       <b>Add Dependent:</b> 
+       <br>
+        <br>
+    <input  placeholder="Full Name" formControlName="name" type="text" class="form-control" style=" width: 200px;height: 25px;">
+    <br>
+    <input placeholder="Age" formControlName="age"type="email" class="form-control" style=" width: 200px;height: 25px;">
+    <br>
+    <input placeholder="Gender" formControlName="gender" type="text" class="form-control" style=" width: 200px;height: 25px;">
+    <br>
+    <input  placeholder="Address" formControlName="address" type="text" style=" width: 200px;height: 25px;">
+    <br>
+    <input  placeholder="Mobile Number" formControlName="mobnumber"  type="text"  style=" width: 200px;height: 25px;">
+    <br>
+    <input placeholder="Email" formControlName="email" type="text"  style=" width: 200px;height: 25px;">
+    <br>
+    <input placeholder="Password" formControlName="paasword" type="password"  style=" width: 200px;height: 25px;">
+    <br>
+    <br>
+    <input  type="submit"  value="Add" style="background-color: rgb(103, 114, 39);height:20px;width:60px">
+    <button type="submit" (click)="Cancel()" style="background-color: rgb(173, 59, 43);height:20px;width:60px">Cancel</button> 
+    </div>
+    </form>
+  </div>
+
+  <div *ngIf="showSlot" >
+      <form [formGroup]="bookSlotForm">
+      <div id="second" style="margin-left: 329px;">
+       <b>Book Slot :</b> 
+<br>
+<br>
+<div>
+   <div class="row">
+        <div class="col-sm-5 formDivCaptions">
+            <label>Preferred Vaccine</label>
+        </div>
+        <div class="col-sm-6">
+                 <select formControlName="vaccineName" [(ngModel)]="vaccine" class="form-control formDivTextBoxDropdownControls">
+        
+                <option value="covaxin">Covaxin</option>
+                <option value="Covidsheild">Covidsheild</option>
+        
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-5 formDivCaptions">
+            <label>Dose</label>
+        </div>
+        <div class="col-sm-6">
+       
+            <label *ngFor="let values of visibleValues">
+                <input type="radio" value="{{values}}" [(ngModel)]="dose" formControlName="dose" />
+                <label>&nbsp;&nbsp;{{values}}&nbsp;</label>
+            </label>
+        </div>
+    </div>
+    <br>
+    <br>
+    <button  type="submit"  (click)="Book()"style="background-color: rgb(103, 114, 39);height:20px;width:60px">Book</button>
+    <button type="submit" (click)="Back()" style="background-color: rgb(173, 59, 43);height:20px;width:60px">Cancel</button> 
+</div>
+      </div>
+</form>
+  </div>

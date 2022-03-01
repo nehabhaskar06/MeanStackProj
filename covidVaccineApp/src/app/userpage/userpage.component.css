@@ -1,0 +1,23 @@
+div#first{
+    width:260px;
+    height:564;
+    margin:50px auto 0;
+    padding:45px;
+    margin-top:2px;
+    background-color:rgb(37, 163, 172);
+    color:#333;
+    border:2px solid #C2D6FF;
+    border-radius:40px 0 40px 0
+    }
+
+    div#second{
+        width:155px;
+        height:564;
+        margin:50px auto 0;
+        padding:45px;
+        margin-top:2px;
+        background-color:rgb(37, 163, 172);
+        color:#333;
+        border:2px solid #C2D6FF;
+        border-radius:40px 0 40px 0
+        }
